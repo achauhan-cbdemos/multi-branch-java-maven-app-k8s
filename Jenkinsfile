@@ -25,7 +25,7 @@ pipeline {
         }
       }
     }
-    stage ('Deliver for development'') {
+    stage ('Deliver for development') {
       when {
         branch 'development' 
       }
@@ -36,7 +36,7 @@ pipeline {
         }
       }
     }
-    stage ('Deliver for production'') {
+    stage ('Deliver for production') {
       when {
         branch 'production' 
       }
