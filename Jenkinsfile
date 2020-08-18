@@ -25,12 +25,27 @@ pipeline {
         }
       }
     }
-    stage ('Deliver') {
+    stage ('Deliver for development'') {
+      when {
+        branch 'development' 
+      }
       steps {
         container ('maven') {
+          input message: 'Deploy to Dev? (Click "Proceed" to continue)'
           sh './jenkins/scripts/deliver.sh'
         }
       }
     }
+    stage ('Deliver for production'') {
+      when {
+        branch 'production' 
+      }
+      steps {
+        container ('maven') {
+          input message: 'Deploy to Prod? (Click "Proceed" to continue)'
+          sh './jenkins/scripts/deliver.sh'
+        }
+      }
+    }          
   }
 }
