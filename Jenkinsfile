@@ -29,7 +29,7 @@ pipeline {
         }
         stage ('Test on Windows') {
           steps {
-            echo 'Windows test..."
+            echo 'Windows test...'
           }
           post {
             always {
